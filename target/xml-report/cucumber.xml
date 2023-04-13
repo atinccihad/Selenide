@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Cucumber" time="19.614" tests="1" skipped="0" failures="0" errors="0">
+<testcase classname="navigasyonlar" name="TC 01 navigasyon testi" time="19.055">
+<system-out><![CDATA[
+Given Kullanici "https://www.google.com/"  adresine gider...................passed
+]]></system-out>
+</testcase>
+</testsuite>
