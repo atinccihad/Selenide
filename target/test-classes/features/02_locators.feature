@@ -10,6 +10,13 @@ Feature: locators
     And 3 saniye bekler
     Then Giris yapildigini test eder
 
+  # 1.feature file olustur
+  # 2. test case'leri yaz
+  # 3. yeni test adimlari icin yeni bir Stepdefinition(Class) olusturalim ve stepdefinitions(java methots) olustur
+  # 4. Page class olustur(pages package altinda)
+  # 5. kullaniciAdi, sifresi ve submit butonunu o sayfada bul
+  # 6. testleri uygula
+
       #    In Selenide framework, we can find web elements with both Selenide OR Selenium locators.
       #  $ character => used to find single element
       #  $ character => return SelenideElement

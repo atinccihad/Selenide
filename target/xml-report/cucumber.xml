@@ -1,10 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="13.621" tests="1" skipped="0" failures="0" errors="0">
-<testcase classname="checkbox ve radio button" name="TC01 checkbox" time="12.59">
+<testsuite name="Cucumber" time="33.078" tests="3" skipped="0" failures="0" errors="0">
+<testcase classname="checkbox ve radio button" name="TC01 checkbox" time="18.536">
 <system-out><![CDATA[
 Given kullanici "https://testcenter.techproeducation.com/index.php?page=checkboxes" adresine gider.passed
-And "Checkbox1" secili degilse sec..........................................passed
-And "Checkbox2" secili degilse sec..........................................passed
+And 3 saniye bekler.........................................................passed
+And "Checkbox 1" secili degilse sec.........................................passed
+And "Checkbox 2" secili degilse sec.........................................passed
+And sayfayi acik tutar......................................................passed
+]]></system-out>
+</testcase>
+<testcase classname="checkbox ve radio button" name="TC02 radio" time="6.71">
+<system-out><![CDATA[
+Given kullanici "https://testcenter.techproeducation.com/index.php?page=radio-buttons" adresine gider.passed
+And 3 saniye bekler.........................................................passed
+And "Red" secili degilse sec................................................passed
+And sayfayi acik tutar......................................................passed
+]]></system-out>
+</testcase>
+<testcase classname="checkbox ve radio button" name="TC03 radio" time="7.13">
+<system-out><![CDATA[
+Given kullanici "https://testcenter.techproeducation.com/index.php?page=radio-buttons" adresine gider.passed
+And 3 saniye bekler.........................................................passed
+And "Football" secili degilse sec...........................................passed
 And sayfayi acik tutar......................................................passed
 ]]></system-out>
 </testcase>

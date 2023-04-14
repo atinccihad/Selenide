@@ -1,8 +1,7 @@
 package stepdefinitions;
 
 import com.codeborne.selenide.Configuration;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
+import io.cucumber.java.en.*;
 
 import static com.codeborne.selenide.Selenide.*;
 
@@ -37,7 +36,7 @@ public class CommonStepDefinitions {
 
     @Then("sayfayi acik tutar")
     public void sayfayi_acik_tutar() {
-        // varsayilan Selenide ayarlarinda browser otomatic kapanir
+        // varsayilan Selenide ayarlarinda browser automatic kapanir
         Configuration.holdBrowserOpen = true; // browser kapanmasini onler
     }
 

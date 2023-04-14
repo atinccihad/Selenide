@@ -1,6 +1,7 @@
 package stepdefinitions;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Driver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -17,6 +18,7 @@ public class TestCenterStepDefinitions {
     @Given("kullanici adini gir")
     public void kullanici_adini_gir() {
         testCenterPage.kullaniciAdi.setValue("techproed");
+        // setValue() => selenium sendKeys() ile ayni islevi gerceklestiren  Selenide methodu
     }
 
     @Given("kullanici sifresini gir")
@@ -31,20 +33,23 @@ public class TestCenterStepDefinitions {
 
     @Then("giris yapildigini test et")
     public void giris_yapildigini_test_et() {
-//        Assert.assertTrue(testCenterPage.girisMesaji.isDisplayed());//JUNIT
-//        testCenterPage.girisMesaji.shouldBe(Condition.visible);
-        testCenterPage.girisMesaji.shouldBe(visible);// SELENIDE ASSERTION.
-        // FAIL EDERSE EKRAN GORUNTUSU OTOMATIK OLARAK ALINIR VE build DOSYASINA KAYDEDILIR
+        // Assert.assertTrue(testCenterPage.girisMesaji.isDisplayed());   => SELENIUM ASSERTION syntax
+        // testCenterPage.girisMesaji.shouldBe(Condition.visible);        => SELENIDE ASSERTION syntax
+        testCenterPage.girisMesaji.shouldBe(visible);//                   => SELENIDE ASSERTION syntax
+        // .shouldBe(visible) methodu, .isDisplayed() methodu ile benzer islev gerceklestirir
+        // FAIL EDERSE EKRAN GORUNTUSU OTOMATIK OLARAK ALINIR VE  "build"  DOSYASINA KAYDEDILIR
     }
 
     @And("{string} secili degilse sec")
     public void seciliDegilseSec(String text) {
-//        eger text = Checkbox 1 VE checkbox 1 secili degise, checkbox1 e tikla
+        // eger text = Checkbox 1 VE checkbox 1 secili degise, checkbox1 e tikla
         if (text.equals("Checkbox 1") && !testCenterPage.checkbox1.isSelected()) {
             testCenterPage.checkbox1.click();
-//            Assert.assertTrue(testCenterPage.checkbox1.isSelected());//junit
-//            testCenterPage.checkbox1.shouldBe(Condition.checked);//selenide uzun version
-            testCenterPage.checkbox1.shouldBe(checked);//selenide kisa version
+            // Assert.assertTrue(testCenterPage.checkbox1.isSelected());   => JUnit assertion
+            // testCenterPage.checkbox1.shouldBe(Condition.checked);       => selenide uzun version
+            testCenterPage.checkbox1.shouldBe(checked);//                  => selenide kisa version
+            // .shouldBe(checked)     => radio button veya checkbox'un secili oldugunu,
+            // .shouldNotBe(checked)  => radio button veya checkbox'un secili olmadigini dogrulamak amaci ile kullanilir.
         }
         if (text.equals("Checkbox 2") && !testCenterPage.checkbox2.isSelected()) {
             testCenterPage.checkbox2.shouldNotBe(checked);
@@ -52,9 +57,15 @@ public class TestCenterStepDefinitions {
             testCenterPage.checkbox2.shouldBe(checked);
         }
         if (text.equals("Red") && !testCenterPage.red.isSelected()) {
-            testCenterPage.red.shouldNotBe(checked); // secili olmadigini test et
-            testCenterPage.red.click(); // sec
-            testCenterPage.red.shouldBe(checked); // secili oldugunu test et
+            testCenterPage.red.shouldNotBe(checked); //                   => secili olmadigini test et
+            testCenterPage.red.click(); //                                => sec
+            testCenterPage.red.shouldBe(checked); //                      => secili oldugunu test et
+        }
+        if (text.equals("Football") && !testCenterPage.football.isSelected()) {
+            testCenterPage.football.shouldNotBe(checked); //                   => secili olmadigini test et
+            testCenterPage.football.click(); //                                => sec
+            testCenterPage.football.shouldBe(checked); //                      => secili oldugunu test et
         }
     }
+
 }
