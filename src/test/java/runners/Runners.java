@@ -14,7 +14,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = {"stepdefinitions"},
         dryRun = false,
-        tags = "@google" // iki tagi calistirmak isterseniz "@tagname1  or  @tagname2"
+        tags = "@radio" // iki tagi calistirmak isterseniz "@tagname1  or  @tagname2"
 
 )
 public class Runners {
