@@ -74,7 +74,7 @@ public class TestCenterStepDefinitions {
         }
     }
 
-    @And("kullanici yil olarak {int}, ay olarak {string}, gun olarak {int}")
+    @And("kullanici yil olarak {int}, ay olarak {string}, gun olarak {int} secer")
     public void kullaniciYilOlarakAyOlarakGunOlarak(int yil, String ay, int gun) throws InterruptedException {
         // testCenterPage.yil.selectOption(2000);                           => INDEX = 2000. MAKUL DEGIL.
         // testCenterPage.yil.selectOption(String.valueOf(yil));            => METIN = "2000". CALISIR

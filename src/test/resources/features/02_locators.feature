@@ -3,12 +3,12 @@ Feature: locators
 
   Scenario: TC01 locators
     Given kullanici "https://testcenter.techproeducation.com/index.php?page=form-authentication" adresine gider
-    And kullanici adini girer
-    And sifreyi girer
+    And kullanici adini gir
+    And kullanici sifresini gir
     And 3 saniye bekler
-    When submit butona tiklar
+    When submit buttonuna tikla
     And 3 saniye bekler
-    Then Giris yapildigini test eder
+    Then giris yapildigini test et
 
   # 1.feature file olustur
   # 2. test case'leri yaz
