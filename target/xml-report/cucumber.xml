@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="17.734" tests="1" skipped="0" failures="0" errors="0">
-<testcase classname="iframe_windows" name="TC01 iframe ve window" time="17.057">
+<testsuite name="Cucumber" time="14.323" tests="1" skipped="0" failures="0" errors="0">
+<testcase classname="iframe_windows" name="TC01 iframe ve window" time="13.948">
 <system-out><![CDATA[
 Given kullanici "https://testcenter.techproeducation.com/index.php?page=iframe" adresine gider.passed
 And switch to frame 1.......................................................passed
