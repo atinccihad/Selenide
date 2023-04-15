@@ -14,7 +14,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = {"stepdefinitions"},
         dryRun = false,
-        tags = "@checkbox or @radio or @football" // iki veya daha fazla tagi calistirmak isterseniz "@tagname1  or  @tagname2 or ....."
+        tags = "@iframe" // iki veya daha fazla tagi calistirmak isterseniz "@tagname1  or  @tagname2 or ....."
 
 )
 public class Runners {

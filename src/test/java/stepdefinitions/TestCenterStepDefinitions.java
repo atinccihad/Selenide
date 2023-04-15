@@ -2,6 +2,8 @@ package stepdefinitions;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Driver;
+import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.WebDriverRunner;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -9,8 +11,12 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import pages.TestCenterPage;
 
-import static com.codeborne.selenide.Condition.checked;
-import static com.codeborne.selenide.Condition.visible;
+import java.time.Duration;
+
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.sleep;
+import static com.codeborne.selenide.Selenide.switchTo;
+import static com.codeborne.selenide.WebDriverRunner.url;
 
 public class TestCenterStepDefinitions {
     TestCenterPage testCenterPage = new TestCenterPage();
@@ -62,10 +68,64 @@ public class TestCenterStepDefinitions {
             testCenterPage.red.shouldBe(checked); //                      => secili oldugunu test et
         }
         if (text.equals("Football") && !testCenterPage.football.isSelected()) {
-            testCenterPage.football.shouldNotBe(checked); //                   => secili olmadigini test et
-            testCenterPage.football.click(); //                                => sec
-            testCenterPage.football.shouldBe(checked); //                      => secili oldugunu test et
+            testCenterPage.football.shouldNotBe(checked); //              => secili olmadigini test et
+            testCenterPage.football.click(); //                           => sec
+            testCenterPage.football.shouldBe(checked); //                 => secili oldugunu test et
         }
+    }
+
+    @And("kullanici yil olarak {int}, ay olarak {string}, gun olarak {int}")
+    public void kullaniciYilOlarakAyOlarakGunOlarak(int yil, String ay, int gun) throws InterruptedException {
+        // testCenterPage.yil.selectOption(2000);                           => INDEX = 2000. MAKUL DEGIL.
+        // testCenterPage.yil.selectOption(String.valueOf(yil));            => METIN = "2000". CALISIR
+        testCenterPage.yil.selectOptionByValue(String.valueOf(yil));//      => VALUE = "2000". CALISIR
+        sleep(3000); // HARD WAIT
+        testCenterPage.ay.selectOption(ay); // GORUNEN METIN ILE SEC ="June"  => POPULER
+        sleep(3000);
+        testCenterPage.gun.selectOption(gun-1); // INDEX = 25-1 = 24. BU 25. gunu secer.
+        sleep(3000);
+    }
+
+    // ALERT STEP DEFS
+    @And("alert prompt butonuna tiklar")
+    public void alertPromptButonunaTiklar() {
+        testCenterPage.promptButton.click();
+    }
+    @And("kullanici alert'e {string} metnini yazarve OK e tiklar")
+    public void kullaniciAlertEMetniniYazarveOKETiklar(String arg0) throws InterruptedException {
+        switchTo().alert().sendKeys(arg0);//Alerte FF gelen metni girelim
+        sleep(3000);
+        switchTo().alert().accept();//OK e tiklayalim
+        sleep(3000);
+        // Selenide.sleep(3000);//SELENIDE SLEEP. DINAMIC.
+        // Thread.sleep(3000);//JAVA SLEEP. HARD. 3 SANIYE BEKLE.
+    }
+    @Then("kullanici sonucun {string} icerdigini dogrular")
+    public void kullaniciSonucunIcerdiginiDogrular(String arg0) {
+        testCenterPage.sonuc.shouldHave(text(arg0)); // FF dan gelen metnin sonuc elementinde icerildigi dogrula
+        // Assert.assertTrue(testCenterPage.sonuc.getText().contains(arg0)); => JUNIT ILE DE ASSERT EDILEBILIR
+    }
+
+    @And("switch to frame {int}")
+    public void switchToFrame(int frame) {
+        switchTo().frame(frame - 1); // 1-1 = 0. index = 1. iframe
+    }
+
+    @And("kullanici back to techproeducation.com linkine tiklar")
+    public void kullaniciBackToTechproeducationComLinkineTiklar() throws InterruptedException {
+        testCenterPage.techProLink.click();
+        System.out.println("TechPro Linkine Tiklandi ve Yeni pencere acildi");
+        Thread.sleep(3000);
+        // System.out.println("SAYFA URL I : "+ WebDriverRunner.url());//DRIVER HALA TEST PAGE DE
+        System.out.println("SAYFA URL I : "+ url());//DRIVER HALA TEST PAGE DE
+    }
+
+    @And("switch to window {int}")
+    public void switchToWindow(int targetWindow) throws InterruptedException {
+        switchTo().window(targetWindow-1, Duration.ofSeconds(5)); //    => INDEX. Duration.ofSeconds(5)) zorunlu degil
+        System.out.println("Yeni pencereye gecis yapildi");
+        Thread.sleep(3000);
+        System.out.println("YENI SAYFA URL : "+url()); //                     => YENI SAYFA URL INI VERECEKTIR
     }
 
 }
