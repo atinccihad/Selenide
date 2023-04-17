@@ -20,14 +20,24 @@ public class TestCenterPage {
     //    RADIO ELEMENTLERI
     public SelenideElement red = $(By.id("red"));
     public SelenideElement football = $(By.id("football"));
-    //    DROPDOWN ELEMENTLERI
+    //     DROPDOWN ELEMENTLERI
     public SelenideElement yil = $(By.id("year"));
     public SelenideElement ay = $(By.id("month"));
     public SelenideElement gun = $(By.id("day"));
-    //    ALERT ELEMENTLERI
+    //     ALERT ELEMENTLERI
     public SelenideElement promptButton = $(By.xpath("//button[@onclick='jsPrompt()']"));
     public SelenideElement sonuc = $("#result");
-    //    FRAME ELEMENTLERI
+    //     FRAME ELEMENTLERI
     public SelenideElement techProLink = $(By.xpath("//a[@type='button']"));
+    //     ACTIONS ELEMENTLERI
+    public SelenideElement kaynak = $("#draggable");
+    public SelenideElement hedef = $("#droppable");
+    //    EXPLICIT ELEMENTLERI
+    public SelenideElement startButton = $(By.xpath("//div[@id='start']//button"));
+    public SelenideElement helloWorld = $(By.xpath("//div[@id='finish']//h4"));
+    //    SCREENSHOT
+    public SelenideElement googleImage = $(".lnXdpd");
+    //    JS EXECUTOR
+    public SelenideElement amazonFooter = $(".navFooterMoreOnAmazon");
 
 }

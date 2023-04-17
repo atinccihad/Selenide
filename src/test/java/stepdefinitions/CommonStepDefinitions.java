@@ -3,6 +3,8 @@ package stepdefinitions;
 import com.codeborne.selenide.Configuration;
 import io.cucumber.java.en.*;
 
+import java.util.Date;
+
 import static com.codeborne.selenide.Selenide.*;
 
 public class CommonStepDefinitions {
@@ -40,4 +42,40 @@ public class CommonStepDefinitions {
         Configuration.holdBrowserOpen = true; // browser kapanmasini onler
     }
 
+    @And("tum ekran goruntusunu alir")
+    public void tumEkranGoruntusunuAlir() {
+        // screenshot(new Date().toString()); // ekran goruntusune dynamic isim verildi
+        screenshot("image");
+    }
+
+    @Given("kullanici browser tipini {string} olarak secer")
+    public void kullaniciBrowserTipiniOlarakSecer(String browserTipi) {
+        switch (browserTipi) {
+            case "headless":
+                Configuration.headless = true;
+                break;
+
+            case "firefox":
+                Configuration.browser = "firefox";
+                break;
+
+            case "safari":
+                Configuration.browser = "safari";
+                break;
+
+            case "opera":
+                Configuration.browser = "opera";
+                break;
+
+            case "edge":
+                Configuration.browser = "edge";
+                break;
+
+            default:
+                Configuration.browser = "chrome";
+                break;
+
+        }
+
+    }
 }
