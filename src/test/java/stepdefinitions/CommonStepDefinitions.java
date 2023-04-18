@@ -18,28 +18,28 @@ public class CommonStepDefinitions {
     public void saniye_bekler(Integer int1) {
         // selenide default olarak 4 sn bekler,
         // 4 sn den fazla beklemek icin sleep methodu kullanilir
-        sleep(int1 * 1000); // ms olarak aldigi icin sn cevirmek icin 1000 ile carpiyoruz
+        sleep(int1 * 1000); // ms olarak kabul ettigi icin, sn verisini 1000 ile carpiyoruz
     }
 
     @Then("onceki sayfaya gider")
     public void onceki_sayfaya_gider() {
-        back();
+        back(); // back() -> onceki sayfaya gider
     }
 
     @Then("sonraki sayfaya gider")
     public void sonraki_sayfaya_gider() {
-        forward();
+         forward(); // forward() -> sonraki sayfaya gider
     }
 
     @Then("sayfayi yeniler")
     public void sayfayi_yeniler() {
-        refresh();
+        refresh(); // refresh() -> sayfayi yeniler
     }
 
     @Then("sayfayi acik tutar")
     public void sayfayi_acik_tutar() {
         // varsayilan Selenide ayarlarinda browser automatic kapanir
-        Configuration.holdBrowserOpen = true; // browser kapanmasini onler
+        Configuration.holdBrowserOpen = true; // browser kapanmasini onler, sayfayi acik tutar
     }
 
     @And("tum ekran goruntusunu alir")
@@ -74,7 +74,6 @@ public class CommonStepDefinitions {
             default:
                 Configuration.browser = "chrome";
                 break;
-
         }
 
     }
