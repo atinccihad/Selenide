@@ -4,6 +4,7 @@ import com.codeborne.selenide.Configuration;
 import io.cucumber.java.en.*;
 
 import java.util.Date;
+import java.util.Timer;
 
 import static com.codeborne.selenide.Selenide.*;
 
@@ -45,7 +46,7 @@ public class CommonStepDefinitions {
     @And("tum ekran goruntusunu alir")
     public void tumEkranGoruntusunuAlir() {
         // screenshot(new Date().toString()); // ekran goruntusune dynamic isim verildi
-        screenshot("image");
+        screenshot("image"+new Date().getTime());
     }
 
     @Given("kullanici browser tipini {string} olarak secer")
