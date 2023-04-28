@@ -4,7 +4,7 @@ Feature: screenshots
   @tumekrangoruntusu
   Scenario: tum ekran goruntusu
     Given kullanici "https://www.amazon.com/" adresine gider
-    And tum ekran goruntusunu alir
+    And ekran goruntusunu alir
 
   @googleimage
   Scenario: belirli elemenetin ekran goruntusu

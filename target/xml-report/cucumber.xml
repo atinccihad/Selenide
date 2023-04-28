@@ -1,31 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="38.597" tests="4" skipped="0" failures="0" errors="0">
-<testcase classname="cross browser" name="TC01 headless" time="26.394">
+<testsuite name="Cucumber" time="15.05" tests="1" skipped="0" failures="0" errors="0">
+<testcase classname="js executor" name="js executor" time="14.3">
 <system-out><![CDATA[
-Given kullanici browser tipini "headless" olarak secer......................passed
-Given kullanici "https://www.hepsiburada.com/" adresine gider...............passed
-Then tum ekran goruntusunu alir.............................................passed
-]]></system-out>
-</testcase>
-<testcase classname="cross browser" name="TC02 firefox" time="1.751">
-<system-out><![CDATA[
-Given kullanici browser tipini "firefox" olarak secer.......................passed
-Given kullanici "https://www.izlesene.com/" adresine gider..................passed
-Then tum ekran goruntusunu alir.............................................passed
-]]></system-out>
-</testcase>
-<testcase classname="cross browser" name="TC03 safari - windowsda fail" time="4.35">
-<system-out><![CDATA[
-Given kullanici browser tipini "safari" olarak secer........................passed
 Given kullanici "https://www.amazon.com/" adresine gider....................passed
-Then tum ekran goruntusunu alir.............................................passed
-]]></system-out>
-</testcase>
-<testcase classname="cross browser" name="TC04 edge - macde fail" time="5.419">
-<system-out><![CDATA[
-Given kullanici browser tipini "edge" olarak secer..........................passed
-Given kullanici "https://medium.com/" adresine gider........................passed
-Then tum ekran goruntusunu alir.............................................passed
+And ekran goruntusunu alir..................................................passed
+And footer elementi gorunur sekilde goster..................................passed
+Then sayfayi acik tutar.....................................................passed
 ]]></system-out>
 </testcase>
 </testsuite>

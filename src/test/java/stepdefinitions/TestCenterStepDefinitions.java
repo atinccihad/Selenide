@@ -184,9 +184,7 @@ public class TestCenterStepDefinitions {
     @And("footer elementi gorunur sekilde goster")
     public void footerElementiGorunurSekildeGoster() {
         // testCenterPage.amazonFooter
-        executeJavaScript("arguments[0].scrollIntoView(true);",testCenterPage.amazonFooter);
-
-
+        executeJavaScript("arguments[0].scrollIntoView(true);", testCenterPage.amazonFooter);
     }
 
 }

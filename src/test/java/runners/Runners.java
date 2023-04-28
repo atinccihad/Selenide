@@ -16,7 +16,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = {"stepdefinitions"},
         dryRun = false,
-        tags = "@crossbrowser" // iki veya daha fazla tagi calistirmak isterseniz, syntax ->  "@tagname1  or  @tagname2 or ....."
+        tags = "@scrollwithjs" // iki veya daha fazla tagi calistirmak isterseniz, syntax ->  "@tagname1  or  @tagname2 or ....."
 
 )
 public class Runners {
