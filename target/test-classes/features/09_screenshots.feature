@@ -3,7 +3,7 @@ Feature: screenshots
 
   @tumekrangoruntusu
   Scenario: tum ekran goruntusu
-    Given kullanici "https://www.google.com/" adresine gider
+    Given kullanici "https://www.amazon.com/" adresine gider
     And tum ekran goruntusunu alir
 
   @googleimage
