@@ -38,20 +38,20 @@ public class TestCenterStepDefinitions {
 
     @Then("giris yapildigini test et")
     public void giris_yapildigini_test_et() {
-//        Assert.assertTrue(testCenterPage.girisMesaji.isDisplayed());//JUNIT
-//        testCenterPage.girisMesaji.shouldBe(Condition.visible);
+        // Assert.assertTrue(testCenterPage.girisMesaji.isDisplayed());//JUNIT
+        // testCenterPage.girisMesaji.shouldBe(Condition.visible);
         testCenterPage.girisMesaji.shouldBe(visible);// SELENIDE ASSERTION.
         // FAIL EDERSE EKRAN GORUNTUSU OTOMATIK OLARAK ALINIR VE build DOSYASINA KAYDEDILIR
     }
 
-    //DROPDOWN STEP DEFS
+    // DROPDOWN STEP DEFS
     @And("{string} secili degilse sec")
     public void seciliDegilseSec(String text) {
-//        eger text = Checkbox 1 VE checkbox 1 secili degise, checkbox1 e tikla
+        // eger text = Checkbox 1 VE checkbox 1 secili degise, checkbox1 e tikla
         if (text.equals("Checkbox 1") && !testCenterPage.checkbox1.isSelected()) {
             testCenterPage.checkbox1.click();
-//            Assert.assertTrue(testCenterPage.checkbox1.isSelected());//junit
-//            testCenterPage.checkbox1.shouldBe(Condition.checked);//selenide uzun version
+            // Assert.assertTrue(testCenterPage.checkbox1.isSelected());//junit
+            // testCenterPage.checkbox1.shouldBe(Condition.checked);//selenide uzun version
             testCenterPage.checkbox1.shouldBe(checked);//selenide kisa version
         }
         if (text.equals("Checkbox 2") && !testCenterPage.checkbox2.isSelected()) {
@@ -73,8 +73,8 @@ public class TestCenterStepDefinitions {
 
     @And("kullanici yil olarak {int}, ay olarak {string}, gun olarak {int}")
     public void kullaniciYilOlarakAyOlarakGunOlarak(int yil, String ay, int gun) throws InterruptedException {
-//        testCenterPage.yil.selectOption(2000);//INDEX = 2000. MAKUL DEGIL.
-//        testCenterPage.yil.selectOption(String.valueOf(yil));//METIN = "2000". CALISIR
+        // testCenterPage.yil.selectOption(2000);//INDEX = 2000. MAKUL DEGIL.
+        // testCenterPage.yil.selectOption(String.valueOf(yil));//METIN = "2000". CALISIR
         testCenterPage.yil.selectOptionByValue(String.valueOf(yil));//VALUE = "2000". CALISIR
         sleep(3000); //HARD WAIT
         testCenterPage.ay.selectOption(ay);//GORUNEN METIN ILE SEC ="June". POPULER.
@@ -95,8 +95,8 @@ public class TestCenterStepDefinitions {
         sleep(3000);
         switchTo().alert().accept();//OK e tiklayalim
         sleep(3000);
-//        Selenide.sleep(3000);//SELENIDE SLEEP. DINAMIC.
-//        Thread.sleep(3000);//JAVA SLEEP. HARD. 3 SANIYE BEKLE.
+        // Selenide.sleep(3000);//SELENIDE SLEEP. DINAMIC.
+        // Thread.sleep(3000);//JAVA SLEEP. HARD. 3 SANIYE BEKLE.
     }
 
     @Then("kullanici sonucun {string} icerdigini dogrular")
@@ -115,7 +115,7 @@ public class TestCenterStepDefinitions {
         testCenterPage.techProLink.click();
         System.out.println("TechPro Linkine Tiklandi ve Yeni pencere acildi");
         Thread.sleep(3000);
-//        System.out.println("SAYFA URL I : "+ WebDriverRunner.url());//DRIVER HALA TEST PAGE DE
+        // System.out.println("SAYFA URL I : "+ WebDriverRunner.url());//DRIVER HALA TEST PAGE DE
         System.out.println("SAYFA URL I : " + url());//DRIVER HALA TEST PAGE DE
     }
 
@@ -129,10 +129,10 @@ public class TestCenterStepDefinitions {
 
     @And("kullanici source elementi target elementine surukler")
     public void kullaniciSourceElementiTargetElementineSurukler() {
-//        SELENIUM
-//        Actions actions = new Actions();
-//        SELENIDE KISACA actions()
-//        1. dragAndDrop
+        // SELENIUM
+        // Actions actions = new Actions();
+        // SELENIDE KISACA actions()
+        // 1. dragAndDrop
         actions()
                 .dragAndDrop(testCenterPage.kaynak, testCenterPage.hedef)//kaynak elementi hedefe surukle
                 .build()//baglantiyi olustur(OPTIONAL)

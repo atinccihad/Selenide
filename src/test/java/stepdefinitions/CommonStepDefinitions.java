@@ -28,7 +28,7 @@ public class CommonStepDefinitions {
 
     @Then("sonraki sayfaya gider")
     public void sonraki_sayfaya_gider() {
-         forward(); // forward() -> sonraki sayfaya gider
+        forward(); // forward() -> sonraki sayfaya gider
     }
 
     @Then("sayfayi yeniler")
@@ -45,7 +45,7 @@ public class CommonStepDefinitions {
     @And("ekran goruntusunu alir")
     public void ekranGoruntusunuAlir() {
         // screenshot(new Date().toString()); // ekran goruntusune dynamic isim verildi
-        screenshot("image"+new Date().getTime());
+        screenshot("image" + new Date().getTime());
     }
 
     @Given("kullanici browser tipini {string} olarak secer")
