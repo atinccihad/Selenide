@@ -12,6 +12,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.TestCenterPage;
 
 import java.time.Duration;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
@@ -102,7 +103,7 @@ public class TestCenterStepDefinitions {
     @Then("kullanici sonucun {string} icerdigini dogrular")
     public void kullaniciSonucunIcerdiginiDogrular(String arg0) {
         testCenterPage.sonuc.shouldHave(text(arg0));//FF dan gelen metnin sonuc elementinde icerildigi dogrula.Tercih edilen.
-//        Assert.assertTrue(testCenterPage.sonuc.getText().contains(arg0));//JUNIT ILE DE ASSERT EILEBILIR.
+        // Assert.assertTrue(testCenterPage.sonuc.getText().contains(arg0));//JUNIT ILE DE ASSERT EILEBILIR.
     }
 
     @And("switch to frame {int}")
